@@ -1,0 +1,13 @@
+import { WatchedList } from "@/core/entities/watched-list";
+import { QuestionAttachment } from "./question-attachment";
+
+export interface IQuestionAttachmentList {
+  createdAt: Date;
+  updatedAt?: Date | null;
+}
+
+export class QuestionAttachmentList extends WatchedList<QuestionAttachment> {
+  compareItems(a: QuestionAttachment, b: QuestionAttachment) {
+    return a.attachmentId.equals(b.attachmentId);
+  }
+}
